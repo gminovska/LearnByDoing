@@ -17,6 +17,7 @@ body {
 
 .step-container {
   display: flex;
+  align-items: center; /* centers the lines */
 }
 
 .step {
@@ -28,4 +29,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.line {
+  border: 2px solid gainsboro;
+  width: 80px;
+  height: 0px;
 }
