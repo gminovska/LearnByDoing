@@ -18,6 +18,7 @@ body {
 .step-container {
   display: flex;
   align-items: center; /* centers the lines */
+  margin-bottom: 40px; /* creates space between the steps and the buttons */
 }
 
 .step {
@@ -35,4 +36,24 @@ body {
   border: 2px solid gainsboro;
   width: 80px;
   height: 0px;
+}
+
+.btn {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: purple;
+}
+
+.btn:disabled {
+  background-color: gainsboro;
+  color: #585555;
+  cursor: not-allowed;
+}
+
+.btn:active {
+  transform: scale(98%); /* creates button click effect */
 }
