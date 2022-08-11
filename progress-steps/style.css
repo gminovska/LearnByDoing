@@ -30,16 +30,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: border-color 0.5s ease-in-out;
 }
 
 .line {
   border: 2px solid gainsboro;
   width: 80px;
   height: 0px;
+  transition: border-color 0.5s ease-in-out;
 }
 
 .active {
   border-color: purple;
+  transition: border-color 0.5s ease-in-out;
 }
 
 .btn {
