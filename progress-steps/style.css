@@ -32,6 +32,10 @@ body {
   align-items: center;
 }
 
+.active {
+  border-color: purple;
+}
+
 .line {
   border: 2px solid gainsboro;
   width: 80px;
