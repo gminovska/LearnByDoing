@@ -32,6 +32,16 @@ body {
   align-items: center;
   transition: border-color 0.5s ease-in-out;
 }
+.step-wrapper {
+  display: flex;
+  align-items: center;
+}
+.step-wrapper:not(:first-child)::before {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: gainsboro;
+}
 
 .line {
   border: 2px solid gainsboro;
