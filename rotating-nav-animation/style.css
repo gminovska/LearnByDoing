@@ -26,6 +26,8 @@ p {
 .content-container {
   min-height: 100vh;
   background-color: #fff3e9;
+  transform-origin: 55px 100px;
+  transition: transform 0.4s ease-in-out;
 }
 .article {
   max-width: 1000px;
@@ -69,4 +71,13 @@ button {
 #close-btn {
   top: 121px;
   left: 44px;
+}
+
+/* Show navigation */
+
+.show-nav .content-container {
+  transform: rotate(-20deg);
+}
+.show-nav .btn-container {
+  transform: rotate(-90deg);
 }
