@@ -41,3 +41,32 @@ p {
 .article img {
   max-width: 100%;
 }
+
+/* Buttons circle */
+
+.btn-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: coral;
+  z-index: 1;
+  transition: transform 0.4s ease-out;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  font-size: 22px;
+}
+#open-btn {
+  top: 128px;
+  left: 118px;
+}
+#close-btn {
+  top: 121px;
+  left: 44px;
+}
