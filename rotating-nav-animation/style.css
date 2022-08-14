@@ -9,6 +9,7 @@ body {
   margin: 0; /* resets browser defaults*/
   overflow: hidden; /* no scrollbars by default */
   font-size: 22px;
+  background-color: #204f70;
 }
 
 h1 {
@@ -73,6 +74,33 @@ button {
   left: 44px;
 }
 
+/* Navigation */
+
+nav {
+  color: #ffe8d6;
+  position: fixed;
+  bottom: 0;
+}
+
+li {
+  list-style: none;
+  padding-bottom: 22px;
+  position: relative;
+  transform: translateX(-200%);
+  transition: transform 0.4s ease-in;
+}
+li i {
+  padding-right: 7px;
+  font-size: 18px;
+}
+
+li:nth-of-type(2) {
+  left: 22px;
+}
+li:nth-of-type(3) {
+  left: 44px;
+}
+
 /* Show navigation */
 
 .show-nav .content-container {
@@ -80,4 +108,7 @@ button {
 }
 .show-nav .btn-container {
   transform: rotate(-90deg);
+}
+.show-nav nav li {
+  transform: translateX(0);
 }
