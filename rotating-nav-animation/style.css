@@ -8,4 +8,36 @@ body {
   font-family: "Outfit", sans-serif;
   margin: 0; /* resets browser defaults*/
   overflow: hidden; /* no scrollbars by default */
+  font-size: 22px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+small {
+  color: #415660;
+}
+p {
+  margin: 0;
+}
+
+/* Content */
+
+.content-container {
+  min-height: 100vh;
+  background-color: #fff3e9;
+}
+.article {
+  max-width: 1000px;
+  max-height: 100vh;
+  overflow-y: scroll;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.article p {
+  padding: 22px 0;
+}
+.article img {
+  max-width: 100%;
 }
