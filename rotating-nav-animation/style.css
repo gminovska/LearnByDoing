@@ -55,7 +55,6 @@ p {
   height: 200px;
   border-radius: 50%;
   background-color: coral;
-  z-index: 1;
   transition: transform 0.4s ease-out;
 }
 
