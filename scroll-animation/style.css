@@ -26,3 +26,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.left {
+  transform: translateX(-1000px);
+}
+
+.right {
+  transform: translateX(1000px);
+}
