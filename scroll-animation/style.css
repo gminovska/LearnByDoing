@@ -8,7 +8,6 @@ body {
   font-family: "Outfit", sans-serif;
   margin: 0; /* resets browser defaults*/
   display: flex;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
   background-color: #1a1e32;
@@ -25,12 +24,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateX(1000px);
+  transition: transform 0.4s ease-in;
 }
 
-.left {
+.box:nth-of-type(even) {
   transform: translateX(-1000px);
 }
 
-.right {
-  transform: translateX(1000px);
+.box.visible {
+  transform: translateX(0px);
 }
