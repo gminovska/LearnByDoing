@@ -1,35 +1,17 @@
-// find out how many boxes to show based on the screen width. The rest hide by translating them to left and right alternating
-
-const screenHeight = window.innerHeight;
-const boxHeight = 220; // 200px height + 20px bottom margin
-
-//the first box is always visible, regardless of screen height. That is why if numberOfBoxes = 0, we default it to 1.
-let numberOfBoxes = Math.floor((screenHeight + window.scrollY) / boxHeight) || 1;
-console.log(numberOfBoxes, window.scrollY);
 
 //get all the boxes
-let boxes = document.getElementsByClassName('box');
-
-// initially render all the boxes that fit into the screen height
-for (let i = 0; i < numberOfBoxes; i++) {
-    boxes[i].classList.add('visible');
-}
+let boxes = document.querySelectorAll('.box');
 
 //listen for scroll events and read the scroll position 
-document.addEventListener('scroll', (e) => {
-    const newNumberOfBoxes = Math.floor((screenHeight + window.scrollY) / boxHeight);
-    // boxes.forEach((box, index) => index < newNumberOfBoxes ? box.classList.add('visible') : box.classList.remove('visible'))
+// What is the difference between document vs window addEventListener?
+document.addEventListener('scroll', boxVisibility)
 
-    if (newNumberOfBoxes > numberOfBoxes) {
-        // add visible class to the next box
-        boxes[newNumberOfBoxes - 1].classList.add('visible');
 
-        numberOfBoxes = newNumberOfBoxes;
-    }
-    if (newNumberOfBoxes < numberOfBoxes) {
-        //remove visible class from the last box
-        boxes[newNumberOfBoxes].classList.remove('visible');
-        numberOfBoxes = newNumberOfBoxes;
+function boxVisibility() {
+    // set a triggerLine at 80% of the screen. Add visible class to all the elements above it
+    const triggerLine = window.innerHeight / 5 * 4;
+    boxes.forEach((box) => box.getBoundingClientRect().top < triggerLine ? box.classList.add('visible') : box.classList.remove('visible'))
+}
 
-    }
-})
+//call the function for the initial box rendering, prior to scrolling
+boxVisibility();
