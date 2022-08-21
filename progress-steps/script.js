@@ -9,13 +9,12 @@ let nextBtn = document.getElementById("next");
 nextBtn.addEventListener("click", handleNextClick);
 
 // get the steps, lines  to change their properties on click
-let steps = document.querySelectorAll(".step");
-let lines = document.querySelectorAll(".line");
+let steps = document.querySelectorAll(".step-wrapper");
+
 
 function handlePrevClick() {
   activeStep--;
   steps[activeStep].classList.remove("active");
-  lines[activeStep - 1].classList.remove("active");
   if (activeStep == 1) {
     // enable prev btn
     prevBtn.disabled = true;
@@ -27,7 +26,6 @@ function handlePrevClick() {
 
 function handleNextClick() {
   steps[activeStep].classList.add("active");
-  lines[activeStep - 1].classList.add("active");
   activeStep++;
 
   if (activeStep == steps.length) {
