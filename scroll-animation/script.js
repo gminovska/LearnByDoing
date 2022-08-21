@@ -1,29 +1,22 @@
 
-//get all the boxes
 let boxes = document.querySelectorAll('.box');
+let options = {
+    rootMargin: "-200px"
+};
+let observer = new IntersectionObserver(loadBoxes, options);
 
-//call the function for the initial box rendering, prior to scrolling
-boxVisibility();
+function loadBoxes(entries, observer) {
+    entries.forEach((entry) => {
+        // makes all the boxes in the viewport AND the ones above them visible
+        if (entry.isIntersecting || (entry.boundingClientRect.top < entry.rootBounds.top)) {
+            entry.target.classList.add('visible')
+        }
+        // removes bottom boxes as we scroll up
+        if (entry.boundingClientRect.top > entry.rootBounds.bottom) {
+            entry.target.classList.remove('visible')
+        }
 
-// There is no notable difference in the behavior. 
-// The difference is that the event handler won’t get called faster than the frame rate as determined by the requestAnimationFrame method. 
-// This means that your event handler code will get called around 60 times a second - Creating Web Animations by Kirupa Chinnathambi
-
-var isScrolling = false;
-
-window.addEventListener("scroll", throttleScroll);
-
-function throttleScroll() {
-    if (isScrolling == false) {
-        requestAnimationFrame(function () {
-            boxVisibility();
-            isScrolling = false;
-        });
-    }
-    isScrolling = true;
+    })
 }
-function boxVisibility() {
-    // set a triggerLine at 80% of the screen. Add visible class to all the elements above it
-    const triggerLine = window.innerHeight / 5 * 4;
-    boxes.forEach((box) => box.getBoundingClientRect().top < triggerLine ? box.classList.add('visible') : box.classList.remove('visible'))
-}
+
+boxes.forEach(box => observer.observe(box))
