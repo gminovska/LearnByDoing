@@ -10,7 +10,27 @@ body {
   overflow: hidden; /* no scrollbars by default */
   display: flex;
   height: 100vh;
-  flex-direction: column;
-  align-items: center;
+  width: 100vw;
   justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: flex 1s ease;
+}
+
+.day {
+  background-color: aqua;
+}
+
+.night {
+  background-color: yellow;
+}
+
+.shrink {
+  flex: 0;
 }
