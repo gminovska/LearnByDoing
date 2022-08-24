@@ -66,6 +66,10 @@ button:hover {
       center/cover;
 }
 
+.shrink {
+  flex: 0;
+}
+
 .grow {
   flex-basis: 87%;
 }
