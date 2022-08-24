@@ -1,18 +1,18 @@
 let boxes = document.querySelectorAll('.box');
 
-boxes.forEach((box) => box.addEventListener('mouseover', (e) => {
+boxes.forEach((box) => box.addEventListener('mouseenter', (e) => {
     boxes.forEach(box => {
-        if (e.currentTarget !== box) {
-            box.classList.add('shrink')
+        if (e.currentTarget === box) {
+            box.classList.add('grow')
         } else {
-            box.classList.remove('shrink')
+            box.classList.remove('grow')
         }
     })
 }))
 
 
-document.addEventListener('mouseout', (e) => {
+document.addEventListener('mouseleave', (e) => {
     boxes.forEach(box => {
-        box.classList.remove('shrink')
+        box.classList.remove('grow')
     })
 })
