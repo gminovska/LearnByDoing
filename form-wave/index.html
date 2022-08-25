@@ -13,10 +13,21 @@
       referrerpolicy="no-referrer"
     /> -->
     <link rel="stylesheet" href="style.css" />
-    <title>Project Starter</title>
+    <link rel="stylesheet" href="pattern.css" />
+    <title>Form wave</title>
   </head>
   <body>
-    <div>Start here</div>
+    <div class="card">
+      <h1>Please login</h1>
+      <form action="#" class="form">
+        <label for="username">Username</label>
+        <input type="text" id="username" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>No account?&nbsp;<a href="#">Register</a></p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
