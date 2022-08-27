@@ -6,7 +6,7 @@ form.childNodes.forEach((node) => node.htmlFor && labels.push(node));
 labels.forEach((label) => {
     let spanWrappedText = '';
     for (let letter of label.innerHTML) {
-        spanWrappedText += `<span>${letter}</span>`
+        spanWrappedText += `<span>${letter == ' ' ? '&nbsp;' : letter}</span>`
     }
     label.innerHTML = spanWrappedText;
 })
