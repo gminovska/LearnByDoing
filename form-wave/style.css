@@ -31,6 +31,10 @@ h1 {
 }
 label {
   color: var(--color-accent);
+}
+
+label span {
+  display: inline-block;
   transform: translateY(28px);
   transition: transform 0.4s ease;
 }
