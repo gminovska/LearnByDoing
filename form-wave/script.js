@@ -17,18 +17,20 @@ form.addEventListener('focusout', animateLabelDown);
 
 function animateLabelUp(e) {
     let transitionDelay = 100;
-    e.target.labels[0].childNodes.forEach((spanLetter) => {
-
+    extractLabel(e).forEach((spanLetter) => {
         spanLetter.style.transitionDelay = `${transitionDelay}ms`;
         transitionDelay += 100;
         spanLetter.classList.add('focused');
-
     })
 }
 
 function animateLabelDown(e) {
     //only if there is no value in the input field
     if (!e.target.value.trim()) {
-        e.target.labels[0].childNodes.forEach((spanLetter) => spanLetter.classList.remove('focused'))
+        extractLabel(e).forEach((spanLetter) => spanLetter.classList.remove('focused'))
     }
+}
+
+function extractLabel(event) {
+    return event.target.labels[0].childNodes;
 }
