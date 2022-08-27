@@ -1,36 +1,10 @@
-let form = document.querySelectorAll('.form')[0];
-let labels = [];
-form.childNodes.forEach((node) => node.htmlFor && labels.push(node));
+let labels = document.querySelectorAll('.form label');
 
 // Wrap each label letter in span
 labels.forEach((label) => {
     let spanWrappedText = '';
-    for (let letter of label.innerHTML) {
-        spanWrappedText += `<span>${letter == ' ' ? '&nbsp;' : letter}</span>`
+    for (let i = 0; i < label.innerText.length; i++) {
+        spanWrappedText += `<span style="transition-delay: ${i * 50}ms">${label.innerText[i] == ' ' ? '&nbsp;' : label.innerText[i]}</span>`
     }
     label.innerHTML = spanWrappedText;
 })
-
-
-form.addEventListener('focusin', animateLabelUp);
-form.addEventListener('focusout', animateLabelDown);
-
-function animateLabelUp(e) {
-    let transitionDelay = 100;
-    extractLabel(e).forEach((spanLetter) => {
-        spanLetter.style.transitionDelay = `${transitionDelay}ms`;
-        transitionDelay += 100;
-        spanLetter.classList.add('focused');
-    })
-}
-
-function animateLabelDown(e) {
-    //only if there is no value in the input field
-    if (!e.target.value.trim()) {
-        extractLabel(e).forEach((spanLetter) => spanLetter.classList.remove('focused'))
-    }
-}
-
-function extractLabel(event) {
-    return event.target.labels[0].childNodes;
-}

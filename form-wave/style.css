@@ -35,12 +35,12 @@ label {
 
 label span {
   display: inline-block;
-  transform: translateY(28px);
+  transform: translateY(-50px);
   transition: transform 0.4s ease;
 }
 input {
   margin-top: 5px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   padding: 5px;
   background-color: transparent;
   border: none;
@@ -51,6 +51,11 @@ input {
 }
 input:focus {
   outline: none;
+}
+
+input:focus + label span,
+input:not(:placeholder-shown) + label span {
+  transform: translateY(-80px);
 }
 
 button {
@@ -74,8 +79,5 @@ a {
 .form {
   display: flex;
   flex-direction: column;
-}
-
-.focused {
-  transform: translateY(0);
+  padding-top: 20px;
 }
